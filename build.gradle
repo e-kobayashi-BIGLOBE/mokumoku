@@ -1,0 +1,46 @@
+buildscript {
+
+    ext {
+        springBootVersion = '1.4.5.RELEASE'
+        lombokVersion = '1.16.8'
+        javaslangVersion = '2.0.5'
+        spockVersion = '1.0-groovy-2.4'
+        javaslangVersion = '2.0.5'
+
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // Spring Bootプラグイン
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+// -- バージョン --
+version = "1.0"
+
+// プラグイン定義 利用できるタスク(gradle tasks)が増える
+apply {
+    plugin 'groovy' // Viewテンプレートにgroovyを使用しているので、javaではなくgroovyを宣言
+    plugin 'spring-boot'
+    plugin 'war'
+    plugin 'idea' // IntelliJ でプロジェクトを読み込めるように宣言
+}
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    providedCompile "org.projectlombok:lombok:1.16.10"
+
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-integration:${springBootVersion}"
+    providedRuntime "org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}"
+
+    compile "io.javaslang:javaslang:${javaslangVersion}"
+    compile "io.javaslang:javaslang-jackson:${javaslangVersion}"
+}

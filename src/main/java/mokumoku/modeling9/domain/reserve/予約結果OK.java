@@ -5,8 +5,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
-@ToString(includeFieldNames = false)
-@EqualsAndHashCode(doNotUseGetters = true)
 @AllArgsConstructor
 public class 予約結果OK {
     @Getter

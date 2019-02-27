@@ -1,0 +1,47 @@
+@startuml
+title 契約終了
+
+usecase "契約終了"
+actor お客様 as user
+actor オペレーター as operator
+actor "開発G" as dev
+actor 業務設計 as gyod
+actor Salesforce as sf
+actor NTT as ntt
+
+control ビッグローブ光の解約申込 as endOrder
+control 会員を退会予約へ as withdrawalOrder
+control "「解約処理依頼」EMS発行" as endOrderEms
+control 退会予約のビッグローブ光契約者の抽出 as findWithdrawal
+control SFへ回線廃止対象者を連携 as lineCloseOrderForSf
+control 回線廃止オーダ as lineCloseOrder
+control 回線廃止の異動情報連携 as diff
+control 回線ステータスを廃止へ as lineClose
+
+entity 会員 as mem
+entity 契約 as eng
+entity 回線 as line
+
+
+user -r-> endOrder
+endOrder -r-> operator
+
+operator --> withdrawalOrder
+withdrawalOrder --> mem
+operator --> endOrderEms
+
+endOrderEms --> dev
+
+'回線廃止依頼
+gyod --> findWithdrawal
+findWithdrawal --> mem
+gyod --> lineCloseOrderForSf 
+lineCloseOrderForSf --> sf
+sf --> lineCloseOrder
+lineCloseOrder --> ntt
+
+ntt --> diff
+diff --> lineClose
+lineClose --> line
+
+@enduml

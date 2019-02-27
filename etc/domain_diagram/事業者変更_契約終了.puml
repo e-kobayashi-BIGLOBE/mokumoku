@@ -1,0 +1,95 @@
+@startuml
+title 事業者変更_契約終了
+
+skinparam class {
+    BackgroundColor<<NES>> #FCC
+    BackgroundColor<<BIG>> #ACF
+    BackgroundColor<<WHO>> #CAF
+}
+
+
+package B光 {
+    class "契約" as engagement {
+    }    
+    class "回線とる" as lineClose {
+    }
+    class "継続意思確認" as continue {
+    }
+    class "事業者変更転出受注" as collaboChangeOrder {
+    }
+    class "事業者変更キャンセル転出受注" as collaboChangeCancelOrder {
+    }
+    class "回線" as line {
+    }
+    class "月額課金" as monthlyFee {
+    }
+    class "セット割" as setDiscount {
+    }
+    class "工事費" as constructionFee {
+    }
+    class "NTT異動情報(回線)" as nttLineDiff {
+    }
+
+    note top of monthlyFee
+    契約を見て商品契約を
+    変えるのが理想
+    end note
+    note bottom of setDiscount
+    今は契約終了がセット割を終了する
+    セット割が契約を見て終わるのが理想
+    end note
+}
+
+class "会員" as member {
+}
+class "商品契約" as goods {
+}
+class "特典" as campaign {
+}
+class "違約金" as iyakukin {
+}
+class "セット割管理" as setDiscountManagement {
+}
+class "発送管理" as shipping {
+}
+
+engagement --> member
+continue --> engagement
+monthlyFee --> engagement 
+setDiscount --> engagement
+line --> engagement
+
+collaboChangeOrder --> continue
+collaboChangeOrder --> lineClose 
+collaboChangeOrder -r-> line
+lineClose -r-> nttLineDiff
+
+
+'(2)お客様に書面を送る
+collaboChangeOrder -l-> shipping :"契約終了的な書面を出す"
+
+'(3)手数料,違約金,当月処理分の工事費
+collaboChangeOrder -l-> iyakukin :"違約金出す"
+collaboChangeOrder --> goods :"事業者変更手数料を出す"
+constructionFee -r-> engagement
+
+'(4)商品契約を設定する
+continue --> goods :"アンバンドル無料を出す/やめる"
+monthlyFee --> goods :"月額料金を終了する"
+
+'(5)ビッグローブ光を契約終了
+collaboChangeOrder --> engagement :"契約終了"
+
+'(6)特典,セット割契約の終了
+collaboChangeOrder -u-> campaign :"終了"
+collaboChangeOrder --> setDiscount :"終了"
+setDiscount -r> setDiscountManagement
+
+'(7)退会以外になったらアンバンドル無料をやめる
+collaboChangeOrder --> member :"会員状態を監視"
+'continue --> goods :"アンバンドル無料"
+
+'(8)3ヶ月返事がなかったら会員退会させる
+continue --> member :"退会にする"
+
+@enduml

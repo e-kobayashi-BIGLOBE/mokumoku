@@ -9,8 +9,6 @@ import lombok.ToString;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@ToString(includeFieldNames = false)
-@EqualsAndHashCode(doNotUseGetters = true)
 @AllArgsConstructor
 public class 開始時間 {
     @Getter

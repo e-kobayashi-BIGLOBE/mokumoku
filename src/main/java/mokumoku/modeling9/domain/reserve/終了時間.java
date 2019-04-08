@@ -8,8 +8,6 @@ import lombok.ToString;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@ToString(includeFieldNames = false)
-@EqualsAndHashCode(doNotUseGetters = true)
 @AllArgsConstructor
 public class 終了時間 {
     @Getter

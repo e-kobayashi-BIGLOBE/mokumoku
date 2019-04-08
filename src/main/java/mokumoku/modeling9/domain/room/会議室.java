@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-@ToString(includeFieldNames = false)
 @AllArgsConstructor
 public enum  会議室 {
     A(new 会議室名("A")),

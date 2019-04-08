@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.ToString;
 import mokumoku.modeling9.domain.room.会議室;
 
-@ToString(includeFieldNames = false)
-@EqualsAndHashCode(doNotUseGetters = true)
 @AllArgsConstructor
 public class 予約 {
     @Getter

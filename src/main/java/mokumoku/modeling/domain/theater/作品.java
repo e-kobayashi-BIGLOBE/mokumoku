@@ -1,4 +1,4 @@
-package mokumoku.modeling.movie.domain;
+package mokumoku.modeling.movie.domain.theater;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

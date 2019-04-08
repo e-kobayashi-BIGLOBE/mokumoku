@@ -1,4 +1,4 @@
-package mokumoku.modeling.movie.domain;
+package mokumoku.modeling.movie.domain.theater;
 
 public interface 作品Repository {
     

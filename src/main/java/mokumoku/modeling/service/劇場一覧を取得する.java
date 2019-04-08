@@ -1,7 +1,6 @@
-package mokumoku.modeling.movie.service;
+package mokumoku.modeling.service;
 
 import lombok.AllArgsConstructor;
-import mokumoku.modeling.movie.domain.nowonair.上映;
 import mokumoku.modeling.movie.domain.nowonair.上映Repository;
 import mokumoku.modeling.movie.domain.theater.劇場;
 import mokumoku.modeling.movie.domain.theater.劇場Repository;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))

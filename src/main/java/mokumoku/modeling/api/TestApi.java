@@ -9,6 +9,11 @@ import java.util.Map;
 @RestController
 public class TestApi {
 
+    @RequestMapping("/hello")
+    public String hello() {
+        return "Hello World !!";
+    }
+
     @RequestMapping(value = "/develop/test", method = RequestMethod.GET)
     public Map invoke() {
         java.util.Map<String, String> map = new java.util.HashMap<>();

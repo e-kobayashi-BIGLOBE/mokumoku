@@ -1,4 +1,4 @@
-package mokumoku.modeling.movie.service;
+package mokumoku.modeling.service;
 
 import lombok.AllArgsConstructor;
 import mokumoku.modeling.movie.domain.nowonair.上映スケジュール;

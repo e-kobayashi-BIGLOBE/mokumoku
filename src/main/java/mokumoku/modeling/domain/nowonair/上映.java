@@ -17,6 +17,6 @@ public class 上映 {
     }
     @Getter
     private String 劇場ID;
-    private 上映期間 上映期間;
+    private mokumoku.modeling.movie.domain.nowonair.上映期間 上映期間;
     private String 上映ID;
 }

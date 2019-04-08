@@ -3,7 +3,7 @@ package mokumoku.modeling.movie.domain.nowonair;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import mokumoku.modeling.movie.domain.作品;
+import mokumoku.modeling.movie.domain.theater.作品;
 
 import java.sql.Time;
 

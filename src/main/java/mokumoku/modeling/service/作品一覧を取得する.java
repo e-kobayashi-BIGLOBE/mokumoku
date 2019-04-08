@@ -1,4 +1,4 @@
-package mokumoku.modeling.movie.service;
+package mokumoku.modeling.service;
 
 import javaslang.collection.List;
 import lombok.AllArgsConstructor;
@@ -7,8 +7,8 @@ import lombok.ToString;
 import mokumoku.modeling.movie.domain.nowonair.上映;
 import mokumoku.modeling.movie.domain.nowonair.上映Repository;
 import mokumoku.modeling.movie.domain.theater.劇場;
-import mokumoku.modeling.movie.domain.作品;
-import mokumoku.modeling.movie.domain.作品Repository;
+import mokumoku.modeling.movie.domain.theater.作品;
+import mokumoku.modeling.movie.domain.theater.作品Repository;
 
 import java.time.LocalDateTime;
 

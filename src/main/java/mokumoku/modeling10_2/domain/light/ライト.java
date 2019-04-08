@@ -2,13 +2,16 @@ package mokumoku.modeling10_2.domain.light;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
 @ToString(includeFieldNames = false)
 @EqualsAndHashCode(doNotUseGetters = true)
 @AllArgsConstructor
 public class ライト {
+    @Getter//表示用
     private final ライト電源 _ライト電源;
+    @Getter//表示用
     private final ライト明るさ _ライト明るさ;
     
     public ライト ライトを点灯する(

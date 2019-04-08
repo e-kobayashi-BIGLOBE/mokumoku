@@ -9,7 +9,14 @@ import java.util.List;
 @Repository
 public class 劇場RepositoryImpl implements 劇場Repository {
 
+
+    @Override
     public List<劇場> find劇場一覧() {
+        return null;
+    }
+
+    @Override
+    public 劇場 find(String 劇場ID) {
         return null;
     }
 }
